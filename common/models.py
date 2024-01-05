@@ -9,11 +9,7 @@ class Score:
     penalty_sum: int
 
     def __repr__(self):
-        return 'Name: <{}>, Solved: {}, Penalty: {}'.format(
-            self.contestant_internal_name,
-            self.problems_solved,
-            self.penalty_sum
-        )
+        return f'Name: <{self.contestant_internal_name}>, Solved: {self.problems_solved}, Penalty: {self.penalty_sum}'
 
 
 @dataclass

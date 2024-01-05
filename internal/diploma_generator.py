@@ -19,9 +19,9 @@ class DiplomaGenerator:
         diploma_settings = self.get_diploma_settings(score.problems_solved)
         contestant_name_raw, school_name_raw = self.get_contestant_data(score.contestant_internal_name)
         if not contestant_name_raw:
-            print('ERROR: No contestant name for {}'.format(score.contestant_internal_name))
+            print(f'ERROR: No contestant name for {score.contestant_internal_name}')
         if not school_name_raw:
-            print('ERROR: No school name for {}'.format(score.contestant_internal_name))
+            print(f'ERROR: No school name for {score.contestant_internal_name}')
 
         diploma = models.Diploma(
             degree=diploma_settings,

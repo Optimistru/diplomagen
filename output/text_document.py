@@ -11,7 +11,7 @@ from common import settings
 LAYOUT = {
     'top': Mm(115), 'bottom': Mm(20), 'left': Mm(40), 'right': Mm(40),  # границы листа
     'skip': Mm(40),  # отступ перед строками с подписями
-    'tab_stop': Mm(105),  # позиция табуляции для фамилий подписантов
+    'tab_stop': Mm(100),  # позиция табуляции для фамилий подписантов
 }
 
 # Стили параграфов диплома
@@ -53,11 +53,11 @@ class TextDocument:
         return paragraph
 
     def _make_page(self, diploma) -> None:
-        self._make_paragraph('Дипломом {}\nнаграждается'.format(diploma.degree.degree_text), HEAD_STYLE)
+        self._make_paragraph(f'Дипломом {diploma.degree.degree_text}\nнаграждается', HEAD_STYLE)
         self._make_paragraph(diploma.contestant_full_name, NAME_STYLE)
-        self._make_paragraph('{}'.format(diploma.school_name), SCHOOL_STYLE)
-        self._make_paragraph('{} финала'.format(diploma.degree.status_text), STATUS_STYLE)
-        self._make_paragraph('сезона {} чемпионата ИТ-сферы Ульяновской области'.format(settings.SEASON), SEASON_STYLE)
+        self._make_paragraph(f'{diploma.school_name}', SCHOOL_STYLE)
+        self._make_paragraph(f'{diploma.degree.status_text} финала', STATUS_STYLE)
+        self._make_paragraph(f'сезона {settings.SEASON} чемпионата ИТ-сферы Ульяновской области', SEASON_STYLE)
         fmt = self._make_paragraph(settings.SIGN_ULIVT, SIGN_STYLE).paragraph_format
         fmt.space_before = LAYOUT['skip']
         fmt.tab_stops.add_tab_stop(LAYOUT['tab_stop'])

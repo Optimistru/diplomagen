@@ -32,7 +32,7 @@ class DBController:
             self.cursor.execute(query, params)
             return self.cursor.fetchone()
         except mysql.connector.Error as err:
-            print("ERROR: {err}")
+            print(f'ERROR: {str(err)}')
             return None
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -48,7 +48,7 @@ class DBManager:
         if not school_id:
             return None
         data = self.db.execute_query(
-            'SELECT name FROM personal_ivt.c_schools WHERE id={};'.format(int(school_id))
+            f'SELECT name FROM personal_ivt.c_schools WHERE id={int(school_id)};'
         )
         return data[0] if data else None
 
@@ -56,7 +56,7 @@ class DBManager:
         if not user_name:
             return None
         data = self.db.execute_query(
-            'SELECT fullname FROM personal_ivt.c_users WHERE name=\'{}\';'.format(user_name)
+            f'SELECT fullname FROM personal_ivt.c_users WHERE name=\'{user_name}\';'
         )
         return data[0] if data else None
 
@@ -64,6 +64,6 @@ class DBManager:
         if not user_name:
             return None
         data = self.db.execute_query(
-            'SELECT idSchool FROM personal_ivt.c_users WHERE name=\'{}\';'.format(user_name)
+            f'SELECT idSchool FROM personal_ivt.c_users WHERE name=\'{user_name}\';'
         )
         return data[0] if data else None

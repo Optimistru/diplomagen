@@ -9,10 +9,10 @@ SEASON = 'Весна-2023'
 D1, D2, D3 = (6, 5, 4)
 
 INPUT_FILENAME = 'input.txt'
-RESULT_FILENAME = '{}.docx'.format(SEASON)
+RESULT_FILENAME = f'{SEASON}.docx'
 
-SIGN_ULIVT = 'Председатель оргкомитета чемпионата\nд.т.н., профессор кафедры ВТ УлГТУ\tВ.Н.Негода'
-SIGN_DEAN = 'Декан ФИСТ УЛГТУ\tК.В.Святов'
+SIGN_ULIVT = 'Председатель оргкомитета чемпионата\nд.т.н., профессор кафедры ВТ УлГТУ\tВ. Н. Негода'
+SIGN_DEAN = 'Декан ФИСТ УлГТУ\tК. В. Святов'
 
 DIPLOMA_SETTINGS = [
     models.DiplomaDegree(

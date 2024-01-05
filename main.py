@@ -9,7 +9,7 @@ def main():
     contest_results = ParserManager().get_parser().parse()
     print('Parsed contest results')
     scores = ScoreCalculator().calculate_score(contest_results)
-    print('Got contest scores: {}'.format(scores))
+    print(f'Got contest scores: {scores}')
     with db_controller.DBController() as db_conn:
         db = db_controller.DBManager(db_conn)
         diploma_generator = DiplomaGenerator(db)
@@ -17,7 +17,7 @@ def main():
     print('Generated diploma data')
     doc_generator = TextDocument()
     doc_generator.generate(diplomas)
-    print('Generated {} diplomas in file {}'.format(len(diplomas), doc_generator.filename))
+    print(f'Generated {len(diplomas)} diplomas in file {doc_generator.filename}')
 
 
 if __name__ == '__main__':
